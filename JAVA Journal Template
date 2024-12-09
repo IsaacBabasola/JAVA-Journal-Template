@@ -1,0 +1,28 @@
+// Initialize player's total balance to 0
+int totalBalance = 0;
+
+// Prompt the player to enter their bet amount
+System.out.print("Enter your bet: ");
+int betAmount = input.nextInt();
+
+// Roll two dice
+int roll = rollDice();  // Simulates rolling two dice
+
+// Check if the roll is a winning roll (7 or 11)
+if (roll == 7 || roll == 11) {
+    totalBalance += betAmount * 4;  // Player wins 4 times the bet
+    System.out.println("You win! You earned $" + (betAmount * 4));
+} 
+// Check if the roll is a losing roll (2, 3, or 12)
+else if (roll == 2 || roll == 3 || roll == 12) {
+    totalBalance -= betAmount;  // Player loses their bet
+    System.out.println("You lose! You lost $" + betAmount);
+} 
+// If the roll is neither a win nor a loss, prompt for another roll
+else {
+    System.out.println("You need to roll again.");
+    // Additional logic for the second roll goes here
+}
+
+// Display the updated balance
+System.out.println("Your current balance is: $" + totalBalance);
